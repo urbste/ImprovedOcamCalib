@@ -18,7 +18,7 @@ close all
 
 % test cases: [use_urban, use_subpixel, robust]
 test_cases = {[false,false,false],[false,true,false],[true,false,false],[true,true,false],[true,true,true]};
-% test_cases = {[true,true,true]};
+% test_cases = {[false,false,false]};
 nr_tests = size(test_cases,2);
 
 % filenames
@@ -146,7 +146,7 @@ for b=1:size(test_cases,2)
          % perform linear calibration
          % this step is equal to all methods
          calibration(calib_data{idx});
-    
+
          if (use_urban)             
 %              findcenterUrban(calib_data{idx});
 %              optimizefunction(calib_data{idx});

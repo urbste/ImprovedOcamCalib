@@ -29,7 +29,7 @@ e=x(5);
 offset = calib_data.taylor_order+6;
 
 % ssc=[x(6) 0 x(7:offset)];
-ssc=[x(6:offset)];
+ssc=x(6:offset);
 
 num_points = size(M,1);
 

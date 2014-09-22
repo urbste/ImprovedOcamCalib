@@ -158,8 +158,8 @@ for cam=1:nr_cams
             lauf = lauf+6;
         end
         lauf = 0;
-        stdEOangleA(cam,meth) = mean(stdEOangle);
-        stdEOposA(cam,meth) = mean(stdEOpos);
+        stdEOangleA(cam,meth) = median(stdEOangle);
+        stdEOposA(cam,meth) = median(stdEOpos);
     end
 end
 
@@ -191,9 +191,9 @@ for cam=1:nr_cams
                        calibMeth{meth}.calib_data{cam}.statIO.stdIO(2)];
         stdIOss   = [calibMeth{meth}.calib_data{cam}.statIO.stdIO(6:end)'];
         
-        stdEOcdeA(cam,meth) = mean(stdIOcde);
-        stdEOxcycA(cam,meth) = mean(stdIOxcyc);
-        stdEOssA(cam,meth) = mean(stdIOss);
+        stdEOcdeA(cam,meth) = median(stdIOcde);
+        stdEOxcycA(cam,meth) = median(stdIOxcyc);
+        stdEOssA(cam,meth) = median(stdIOss);
     end
 end
 
