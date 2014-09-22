@@ -27,13 +27,13 @@ function ocam_calib_guiUrban
 cell_list = {};
 
 fig_number = 1;
-title_figure = 'Imrpoved Omnidirectional Camera Calibration Toolbox';
+title_figure = 'Improved Omnidirectional Camera Calibration Toolbox';
 cell_list{1,1} = {'Read names','data_calib(calib_data);'};
 cell_list{1,2} = {'Extract grid corners','click_calibUrban(calib_data);'};
 cell_list{1,3} = {'Calibration','calibration(calib_data);'};
-cell_list{1,4} = {'BundleAdjustment','bundleAdjustmentUrban(calib_data,false);'};
+cell_list{1,4} = {'Non-linear Refinement','bundleAdjustmentUrban(calib_data,false);'};
 
-cell_list{2,1} = {'Robust BA','bundleAdjustmentUrban(calib_data,true);'};
+cell_list{2,1} = {'Robust Non-linear Refinement','bundleAdjustmentUrban(calib_data,true);'};
 cell_list{2,2} = {'Reproject on images','reproject_calib(calib_data);'};
 cell_list{2,3} = {'Show Extrinsic','create_simulation_points(calib_data);'};
 cell_list{2,4} = {'Analyse error','analyse_error(calib_data);'};
@@ -71,7 +71,7 @@ if ~exist('title_figure'),
     title_figure = '';
 end;
 if ~exist('x_size'),
-    x_size = 120;
+    x_size = 150;
 end;
 if ~exist('y_size'),
     y_size = 16;

@@ -23,7 +23,7 @@ Installation instruction
 ================================
 1. Download and extract the original toolbox Scaramuzza_OCamCalib_v3.0 from
    https://sites.google.com/site/scarabotix/ocamcalib-toolbox/ocamcalib-toolbox-download-page
-  (link worked march 2014)
+  (link worked september 2014)
   
 2. Extract "src/" to the folder with all source files of OcamCalib
    If asked to replace C_calib_data.m and optimizefunction.m click yes.
@@ -44,8 +44,8 @@ How to calibrate a single camera:
       -read images
       -extract corners
       -calibration 
-      -Bundle adjustment (LM least squares) 
-       or Robust BA for robust bundle adjusment (LM least squares with Huber) 
+      -nonlin refinement (LM least squares) 
+       or robust nonlin refinement for robust non-linear refinement (LM least squares with Huber) 
 ---------------------------------
 
 How to calibrate all test images/cameras at once
