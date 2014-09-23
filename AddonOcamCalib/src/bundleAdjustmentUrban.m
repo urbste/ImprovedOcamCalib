@@ -112,7 +112,6 @@ calib_data.statIO.stdIO = calib_data.statEO.sg0 * ...
                           sqrt(abs(diag(calib_data.statIO.Exx)));     
 
 %% rms
-rms = sqrt(sum(v.^2)/length(v));
 
 calib_data.optimized = true;
 calib_data.RRfin = RRfinOpt;
@@ -122,6 +121,8 @@ M = [calib_data.Xt,calib_data.Yt,ones(size(calib_data.Xt,1),1)];
 ss = calib_data.ocam_model.ss;
 ss
 
+rms = sqrt(sum(v.^2)/length(v));
+fprintf(1,'Root mean square[pixel]:  %f\n',rms);
 calib_data.rms = rms;
 
 [calib_data.ocam_model.pol, ...

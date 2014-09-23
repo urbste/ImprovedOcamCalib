@@ -53,6 +53,8 @@ How to calibrate all test images/cameras at once
 1. Download FisheyeDatSets.zip
 2. Download SampleImages.zip from https://sites.google.com/site/scarabotix/ocamcalib-toolbox/ocamcalib-toolbox-download-page
 3. Run Step1_perform_test_calibrations.m  (this takes quite a while)
+   (If you want to run it fully automatic with polynomial order 4, got to
+    calibration.m and comment out line 31)
 4. Compare results with Step2_compare_results.m
 ---------------------------------
 

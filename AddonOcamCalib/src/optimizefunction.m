@@ -210,5 +210,5 @@ calib_data.errMean = err;
 calib_data.errStd = stderr;
 calib_data.mse = MSE;
 calib_data.rms = sqrt(sum(v.^2)/length(v));
-fprintf(1,'Sum of squared errors:  %f\n',calib_data.rms);
+fprintf(1,'Root mean square[pixel]::  %f\n',calib_data.rms);
 %% ================
