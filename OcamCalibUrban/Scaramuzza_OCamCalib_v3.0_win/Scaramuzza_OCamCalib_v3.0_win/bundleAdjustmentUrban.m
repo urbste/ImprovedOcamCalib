@@ -30,11 +30,10 @@ if isempty(calib_data.n_ima) | calib_data.calibrated==0,
     return;
 end;
 
-optionsLM=optimset('Display','off',...
-                   'TolX',1e-4,...
+optionsLM=optimset('Display','iter',...
+                   'TolX',1e-5,...
                    'TolFun',1e-4,...
-                   'MaxIter',100,...
-                   'Algorithm','levenberg-marquardt');                 
+                   'MaxIter',100);                 
              
 if (isempty(calib_data.ocam_model.c) & isempty(calib_data.ocam_model.d) & isempty(calib_data.ocam_model.e))
     calib_data.ocam_model.c=1;
@@ -48,10 +47,7 @@ ss0 = calib_data.ocam_model.ss;
 x0 = [1,1,...
       1,0,0,...
       ones(1,size(calib_data.ocam_model.ss,1))];
-% lb=[0, 0, -2,-1,-1, zeros(1,size(calib_data.ocam_model.ss,1))];
-% ub=[2, 2,  2, 1, 1,2*ones(1,size(calib_data.ocam_model.ss,1))];
-% lb=[-inf,-inf, -inf,-inf,-inf, -inf*ones(1,size(calib_data.ocam_model.ss,1)-1)];
-% ub=[inf,inf,  inf, inf, inf,ones(1,size(calib_data.ocam_model.ss,1)-1)*inf];
+
 offset = 6+calib_data.taylor_order;
 for i = calib_data.ima_proc
     R = calib_data.RRfin(:,:,i);
@@ -90,22 +86,15 @@ calib_data.ocam_model.e = x0(5);
 %% calc standard deviation of EO
 sigma0q = 1^2;
 v = vExtr;
-% J = jacExtr(:,offset+1:end);
 jacExtr(:,7) = [];
 J = jacExtr;
-% Jext = jacExtr(:,offset:end);
-% Jito = jacExtr(:,1:offset-1);
 [rows,cols]=size(J);   
 Qll = sigma0q*eye(size(J,1),size(J,1));
 P0 = inv(Qll);
-% calib_data.statEO.ms = v'*v;
-% calib_data.statEO.rmse = sqrt(v'*v);
 % a posteriori variance
 calib_data.statEO.sg0 = sqrt((v'*P0*v) / (rows-cols));
 % empirical covariance matrix
 Exx = pinv(J'*P0*J);
-% ExxEO = inv(Jext'*Jext);
-% ExxIO = inv(Jito'*Jito);
 calib_data.statEO.Exx = Exx(offset:end,offset:end);
 calib_data.statEO.varEO = diag(calib_data.statEO.Exx);        % variance of ext ori parameters
 calib_data.statEO.stdEO = calib_data.statEO.sg0 * sqrt(abs(diag(calib_data.statEO.Exx)));      % standard deviation of ext ori parameters
@@ -113,19 +102,6 @@ calib_data.statEO.stdEO = calib_data.statEO.sg0 * sqrt(abs(diag(calib_data.statE
 calib_data.statIO.Exx = Exx(1:offset-1,1:offset-1);
 calib_data.statIO.varIO = diag(calib_data.statIO.Exx);        % variance of ext ori parameters
 calib_data.statIO.stdIO = calib_data.statEO.sg0 * sqrt(abs(diag(calib_data.statIO.Exx)));      % standard deviation of ext ori parameters
-
-% calib_data.statEO.Exx = ExxEO;
-% calib_data.statEO.varEO = diag(calib_data.statEO.Exx);        % variance of ext ori parameters
-% calib_data.statEO.stdEO = calib_data.statEO.sg0 * sqrt(abs(diag(calib_data.statEO.Exx)));      % standard deviation of ext ori parameters
-% 
-% calib_data.statIO.Exx = ExxIO;
-% calib_data.statIO.varIO = diag(calib_data.statIO.Exx);        % variance of ext ori parameters
-% calib_data.statIO.stdIO = calib_data.statEO.sg0 * sqrt(abs(diag(calib_data.statIO.Exx)));      % standard deviation of ext ori parameters
-
-%% calc standard deviation of IO
-% calib_data.statIO.Exx = Exx;
-% calib_data.statIO.varIO = diag(calib_data.statIO.Exx);        % variance of ext ori parameters
-% calib_data.statIO.stdIO = sqrt(calib_data.statIO.varIO);      % standard deviation of ext ori parameters
 
 calib_data.optimized = true;
 calib_data.RRfin = RRfinOpt;
@@ -141,7 +117,9 @@ calib_data.rms = rms;
 
 [calib_data.ocam_model.pol, ...
     calib_data.ocam_model.err, ...
-    calib_data.ocam_model.N] = findinvpoly(calib_data.ocam_model.ss, calib_data.I{1});
+    calib_data.ocam_model.N] = findinvpoly(calib_data.ocam_model.ss, ...
+                                           sqrt( (calib_data.ocam_model.width/2)^2 + ...
+                                           (calib_data.ocam_model.height/2)^2));
 
 t1=calib_data.ocam_model.xc;
 t2=calib_data.ocam_model.yc;
