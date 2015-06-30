@@ -25,15 +25,18 @@ Installation instruction
    Davide Scaramuzzas Homepage
    https://sites.google.com/site/scarabotix/ocamcalib-toolbox/ocamcalib-toolbox-download-page
   (link worked june 2015)
-  
-2. Extract "src/" to the folder with all source files of OcamCalib
-   If asked to replace C_calib_data.m and optimizefunction.m click yes.
+2. Download this repository and copy the content of the src folder to the main
+   directory of ocam_calib.
+3. You should be asked to replace 
+   C_calib_data.m and
+   optimizefunction.m -> click yes.
    The first file contains additional varibles for statistics.
    The second file contains additional code lines to save statistics but
    is actually not used by the improved toolbox.
  
 If you want to run the test data sets:
-3. Extract "FisheyeDataSets/" to the same folder (contains 3 image data sets and test scripts))
+3. Extract "FisheyeDataSets/" to the same folder 
+  (contains 3 image data sets and test scripts))
 
 ================================
 Calibration and Tests
