@@ -24,13 +24,13 @@ copy the images from "FisheyeDataSets/" to the same folder
 ## Calibration and Tests ##
 
 ### How to calibrate a single camera: ###
- 1. Run ocam_calibUrban.m  !!! (instead of ocam_calib)
- 2. press (in that order)
-      *read images
-      *extract corners
-      *calibration 
-      *non-linear refinement (LM least squares) 
-       or robust non-linear refinement (LM least squares with Huber) 
+  1. Run ocam_calibUrban.m  !!! (instead of ocam_calib)
+  2. press (in that order)
+    * read images
+    * extract corners
+    * calibration 
+    * non-linear refinement (LM least squares) 
+      or robust non-linear refinement (LM least squares with Huber) 
 
 ### How to calibrate all test images/cameras at once  ###
 1. If not done already, 
