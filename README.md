@@ -3,9 +3,11 @@
 This repository contains addon files for Scaramuzzas OcamCalib Toolbox. 
 More information about the addon can be found in the paper.
 If you use the addons, consider citing it.
+
     Urban, S.; Leitloff, J.; Hinz, S. (2015): 
     Improved Wide-Angle, Fisheye and Omnidirectional Camera Calibration. 
     ISPRS Journal of Photogrammetry and Remote Sensing. Accepted.
+    
 ## Installation instruction ##
 1. Download and extract the original toolbox Scaramuzza_OCamCalib_v3.0 from
    Davide Scaramuzzas Homepage [Link](https://sites.google.com/site/scarabotix/ocamcalib-toolbox/ocamcalib-toolbox-download-page)
