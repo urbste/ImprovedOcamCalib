@@ -11,8 +11,7 @@ If you use the addons, consider citing it.
   volume={108},
   pages={72--79},
   year={2015},
-  publisher={Elsevier}
-  }
+  publisher={Elsevier}}
     
 ## Installation instruction ##
 1. Download and extract the original toolbox Scaramuzza_OCamCalib_v3.0 from
