@@ -5,13 +5,13 @@ More information about the addon can be found in the paper.
 If you use the addons, consider citing it.
 
   @article{urban2015improved,
-    title={Improved wide-angle, fisheye and omnidirectional camera calibration},
-    author={Urban, Steffen and Leitloff, Jens and Hinz, Stefan},
-    journal={ISPRS Journal of Photogrammetry and Remote Sensing},
-    volume={108},
-    pages={72--79},
-    year={2015},
-    publisher={Elsevier}
+  title={Improved wide-angle, fisheye and omnidirectional camera calibration},
+  author={Urban, Steffen and Leitloff, Jens and Hinz, Stefan},
+  journal={ISPRS Journal of Photogrammetry and Remote Sensing},
+  volume={108},
+  pages={72--79},
+  year={2015},
+  publisher={Elsevier}
   }
     
 ## Installation instruction ##
