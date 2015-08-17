@@ -1,0 +1,5 @@
+ Name              #squares_x    #squares_x   size[mm]
+------------------------------------------------------
+Fisheye1_#.jpg         5              7          32.5
+Fisheye2_#.jpg         5              7         117.0
+GoPro#.jpg             5              7         117.0
