@@ -23,7 +23,7 @@ If you use the addons, consider citing it.
 3. You should be asked to replace 
    C_calib_data.m and
    optimizefunction.m -> click yes.
-   The first file contains additional varibles for statistics.
+   The first file contains additional variables for statistics.
    The second file contains additional code lines to save statistics but
    is actually not used by the improved toolbox.
  
